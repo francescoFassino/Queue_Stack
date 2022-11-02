@@ -7,6 +7,12 @@ package com.company;
  * @version 0.1
  * @see IStack
  */
+
+
+/**
+ * queue implementata con logica FIFO (IL PRIMO CHE ENTRA è il primo che esce)
+ *
+ */
 public interface IQueue {
     void enqueue(Object o);
 
