@@ -19,7 +19,7 @@ public class Stack implements IStack{
 
     @Override
     public Object pop() {
-        if(size() != 0 ) {
+        if(!isEmpty()) {
             Object[] support = stack;
             stack = new Object[support.length - 1];
             for (int i = 0; i < stack.length; i++) {
