@@ -1,7 +1,8 @@
 package com.company;
 
 public class Main {
-/*
+
+    private static void exampleQueue(IQueue q) {
     // 1. Add three strings
         q.enqueue("Alice");
         q.enqueue("Bob");
@@ -44,12 +45,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        IQueue q = null;
-        IStack s = null;
-        // initialization of `q` and `s`
+        IQueue q = new Queue();
+        IStack s = new Stack();
         exampleQueue(q);
         exampleStack(s);
     }
 
- */
+
 }

@@ -48,7 +48,7 @@ public class Stack implements IStack{
         }else {
             System.out.println("Lo stack non è vuoto");
             return false;
-//dio cannon
+            //dio cannon
         }
     }
 }
