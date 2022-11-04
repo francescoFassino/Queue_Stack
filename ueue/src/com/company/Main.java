@@ -48,7 +48,7 @@ public class Main {
         IQueue q = new Queue();
         IStack s = new Stack();
         exampleQueue(q);
-        exampleStack(s);
+        //exampleStack(s);
     }
 
 

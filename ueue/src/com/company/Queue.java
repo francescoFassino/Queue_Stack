@@ -17,14 +17,21 @@ public class Queue implements IQueue{
      */
     private void reAlloc(boolean bool){
         Object[] newArray;
-        if(bool){
-            newArray = new Object[queue.length + 1];
+        if (isEmpty()){
+            newArray = new Object[1];
+        }
+        else if(bool){
+            newArray = new Object[this.queue.length + 1];
             //funzione per la copia dell'array queue in newArray
             //(array da copiare, indice da cui partire, array in cui copiare, indice di partenza, lunghezza dell'array)
-            System.arraycopy(this.queue, 0, newArray, 0, newArray.length);
+            for (int i = 0; i < this.queue.length; i++){
+                newArray[i]=this.queue[i];
+            }
         }else{
-            newArray = new Object[queue.length - 1];
-            System.arraycopy(this.queue, 1, newArray, 0, newArray.length);
+            newArray = new Object[this.queue.length - 1];
+            for (int i = 0; i < this.queue.length-1; i++){
+                newArray[i]=this.queue[i+1];
+            }
         }
         this.queue = newArray;
     }
@@ -35,6 +42,7 @@ public class Queue implements IQueue{
      */
     public void enqueue(Object o){
         reAlloc(true);
+        this.queue[queue.length-1] = o;
     }
 
     /**
@@ -42,7 +50,13 @@ public class Queue implements IQueue{
      * @return
      */
     public Object dequeue(){
-
+        if (!isEmpty()){
+            Object r = this.queue[0];
+            reAlloc(false);
+            return r;
+        }else{
+            return null;
+        }
     }
 
     /**
@@ -50,7 +64,11 @@ public class Queue implements IQueue{
      * @return
      */
     public Object front(){
-
+        if (!isEmpty()){
+            return this.queue[0];
+        }else{
+            return null;
+        }
     }
 
     /**
@@ -66,8 +84,19 @@ public class Queue implements IQueue{
      * @return
      */
     public boolean isEmpty(){
-
+        if (this.queue.length==0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
-
+    @Override
+    public String toString(){
+        String plinio = "";
+        for(int i = 0; i<this.queue.length; i++){
+            plinio += queue[i];
+        }
+        return plinio;
+    }
 }
