@@ -15,14 +15,18 @@ public class Queue implements IQueue{
      * @param bool
      * @return
      */
-    private Object[] reAlloc(boolean bool){
+    private void reAlloc(boolean bool){
         Object[] newArray;
         if(bool){
             newArray = new Object[queue.length + 1];
+            //funzione per la copia dell'array queue in newArray
+            //(array da copiare, indice da cui partire, array in cui copiare, indice di partenza, lunghezza dell'array)
+            System.arraycopy(this.queue, 0, newArray, 0, newArray.length);
         }else{
             newArray = new Object[queue.length - 1];
+            System.arraycopy(this.queue, 1, newArray, 0, newArray.length);
         }
-        return newArray;
+        this.queue = newArray;
     }
 
     /**
