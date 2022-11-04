@@ -19,17 +19,20 @@ public class Stack implements IStack{
 
     @Override
     public Object pop() {
-        Object[] support = stack;
-        stack = new Object[support.length - 1];
-        for (int i = 0; i < stack.length; i++){
-            stack[i] = support[i];
+        if(size() != 0 ) {
+            Object[] support = stack;
+            stack = new Object[support.length - 1];
+            for (int i = 0; i < stack.length; i++) {
+                stack[i] = support[i];
+            }
+            return support[support.length - 1];
         }
-        return support[support.length - 1];
+        return null;
     }
 
     @Override
     public Object top() {
-        return null;
+        return stack[stack.length - 1];
     }
 
     @Override
@@ -39,6 +42,13 @@ public class Stack implements IStack{
 
     @Override
     public boolean isEmpty() {
-        return false;
+        if (size() == 0) {
+            System.out.println("Lo stack è vuoto");
+            return true;
+        }else {
+            System.out.println("Lo stack non è vuoto");
+            return false;
+            //dio cannon
+        }
     }
 }
