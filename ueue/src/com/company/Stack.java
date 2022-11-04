@@ -43,12 +43,9 @@ public class Stack implements IStack{
     @Override
     public boolean isEmpty() {
         if (size() == 0) {
-            System.out.println("Lo stack è vuoto");
             return true;
         }else {
-            System.out.println("Lo stack non è vuoto");
             return false;
-            //dio cannon
         }
     }
 }

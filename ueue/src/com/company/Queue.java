@@ -22,7 +22,7 @@ public class Queue implements IQueue{
         }
         else if(bool){
             newArray = new Object[this.queue.length + 1];
-            //funzione per la copia dell'array queue in newArray
+            //funzione per la copa dell'array queue in newArray
             //(array da copiare, indice da cui partire, array in cui copiare, indice di partenza, lunghezza dell'array)
             for (int i = 0; i < this.queue.length; i++){
                 newArray[i]=this.queue[i];
