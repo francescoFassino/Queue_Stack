@@ -121,15 +121,13 @@ public class Stopwatch implements IStopwatch{
         if (!getStarted) {
             this.millispause = 0;
             this.phasetime = 0;
-            System.out.println("il cronometro è stato avviato");
+
             /*
             viene salvato sulla variabile time il momento in cui è stato avviato il cronometro e tramite
             una variabile di tipo boolean viene segnalato che il cronometro sia in esecuzione
              */
             this.time = System.currentTimeMillis();
             this.getStarted = true;
-        } else {
-            System.out.println("devi prima bloccare il cronometro per farlo iniziare di nuovo");
         }
 
     }
@@ -153,14 +151,7 @@ public class Stopwatch implements IStopwatch{
             tempo di fermata)
              */
             this.actualtime = (long) (System.currentTimeMillis() - time - phasetime);
-            System.out.println("è stato fermato");
             this.getStarted = false;
-        } else {
-            if (!getStarted)
-                System.out.println("devi prima far iniziare il cronometro per bloccarlo");
-
-            if (getPaused)
-                System.out.println("devi togliere la pausa per bloccare il processo");
         }
     }
     /*
@@ -174,16 +165,9 @@ public class Stopwatch implements IStopwatch{
             per poi segnalare che il cronometro sia stato messo in pausa
              */
             this.actualtime = (long) (System.currentTimeMillis() - time - phasetime);
-            System.out.println("è stato messo in pausa");
             this.getPaused = true;
             //viene salvato il momento in millisecondi in cui il cronometro viene messo in pausa
             this.millispause = System.currentTimeMillis();
-        } else {
-            if (getPaused)
-                System.out.println("devi prima togliere la pausa per metterla un'altra volta");
-
-            if (!getStarted)
-                System.out.println("devi prima far iniziare il cronometro per metterlo in pausa");
         }
     }
 
@@ -195,7 +179,6 @@ public class Stopwatch implements IStopwatch{
         il messaggio di errore corrispondente al problema
         */
         if(getPaused && getStarted){
-            System.out.println("è ripartito");
             /*
             il metodo incrementa il tempo in cui è stato messo in pausa calcolando il tempo totale di tutte le pause, in caso
             sia stato resettato non verrà incrementato ma verranno azzerati tutti i valori
@@ -211,11 +194,6 @@ public class Stopwatch implements IStopwatch{
             }
             //segnala che il cronometro non sia più in pausa
             this.getPaused = false;
-        } else {
-            if (!getPaused)
-                System.out.println("hai già tolto la pausa");
-            if (!getStarted)
-                System.out.println("devi prima far iniziare il processo");
         }
     }
 
@@ -223,12 +201,6 @@ public class Stopwatch implements IStopwatch{
     public void reset(){
         if (getPaused && getStarted && !getResetted) {
             this.getResetted = true;
-            System.out.println("il cronometro è stato resettato");
-        } else {
-            if (!getPaused)
-                System.out.println("non sei in pausa");
-            if (!getStarted)
-                System.out.println("devi prima far iniziare il processo");
         }
 
     }

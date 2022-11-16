@@ -11,9 +11,7 @@ public class Stack implements IStack{
     public void push(Object o) {
         Object[] support = stack;
         stack = new Object[support.length + 1];
-        for (int i = 0; i < support.length; i++){
-            stack[i] = support[i];
-        }
+        System.arraycopy(support, 0, stack, 0, support.length);
         stack[support.length] = o;
     }
 
@@ -22,9 +20,7 @@ public class Stack implements IStack{
         if(!isEmpty()) {
             Object[] support = stack;
             stack = new Object[support.length - 1];
-            for (int i = 0; i < stack.length; i++) {
-                stack[i] = support[i];
-            }
+            System.arraycopy(support, 0, stack, 0, stack.length);
             return support[support.length - 1];
         }
         return null;
@@ -48,4 +44,5 @@ public class Stack implements IStack{
             return false;
         }
     }
+
 }

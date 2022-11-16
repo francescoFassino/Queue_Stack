@@ -100,6 +100,14 @@ public class StopwatchPro extends Stopwatch implements IStopwatchPro{
         return time;
     }
 
+
+    public String PrintTime(){
+        String returnable;
+        convertTime();
+        int[] time = convertTime();
+        returnable = time[0] + ":" + time[1] + ":" + time[2] + "." + time[3];
+        return returnable;
+    }
     @Override
     public void Print() {
         convertTime();
@@ -128,17 +136,10 @@ public class StopwatchPro extends Stopwatch implements IStopwatchPro{
             per poi segnalare che il cronometro sia stato messo in pausa
              */
             this.actualtime = (long) (System.currentTimeMillis() - time - phasetime);
-            System.out.println("è stato messo in pausa");
             this.getPaused = true;
             //viene salvato il momento in millisecondi in cui il cronometro viene messo in pausa
             this.millispause = System.currentTimeMillis();
             partials.add(convertTime()[0] + ":" + convertTime()[1] + ":" + convertTime()[2] + "." + convertTime()[3]);
-        } else {
-            if (getPaused)
-                System.out.println("devi prima togliere la pausa per metterla un'altra volta");
-
-            if (!getStarted)
-                System.out.println("devi prima far iniziare il cronometro per metterlo in pausa");
         }
 
     }
@@ -162,6 +163,5 @@ public class StopwatchPro extends Stopwatch implements IStopwatchPro{
         while (position > partials.size())
           position = keyboard.nextInt();
         partials.remove(position);
-        System.out.println("eliminato");
     }
 }

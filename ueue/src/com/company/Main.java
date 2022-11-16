@@ -3,6 +3,7 @@ package com.company;
 public class Main {
 
     private static void exampleQueue(IQueue q) {
+        System.out.print("Queue: ");
         StopwatchPro stopwatch = new StopwatchPro("cronometro");
         stopwatch.start();
         for (int i = 0; i < 100000; i++){
@@ -15,11 +16,12 @@ public class Main {
             q.enqueue(i);
         }
         stopwatch.stop();
-        System.out.println(stopwatch.actualtime);
+        System.out.println(stopwatch.PrintTime());
+
 }
 
     private static void exampleStack(IStack s) {
-        // 1. Add three strings
+        System.out.print("Stack: ");
         StopwatchPro stopwatch = new StopwatchPro("cronometro");
         stopwatch.start();
         for (int i = 0; i < 100000; i++){
@@ -32,8 +34,7 @@ public class Main {
             s.push(i);
         }
         stopwatch.stop();
-        System.out.println(stopwatch.actualtime);
-
+        System.out.println(stopwatch.PrintTime());
     }
 
     public static void main(String[] args) {

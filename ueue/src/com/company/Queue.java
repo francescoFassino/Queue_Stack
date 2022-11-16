@@ -24,14 +24,10 @@ public class Queue implements IQueue{
             newArray = new Object[this.queue.length + 1];
             //funzione per la copa dell'array queue in newArray
             //(array da copiare, indice da cui partire, array in cui copiare, indice di partenza, lunghezza dell'array)
-            for (int i = 0; i < this.queue.length; i++){
-                newArray[i]=this.queue[i];
-            }
+            System.arraycopy(this.queue, 0, newArray, 0, this.queue.length);
         }else{
             newArray = new Object[this.queue.length - 1];
-            for (int i = 0; i < this.queue.length-1; i++){
-                newArray[i]=this.queue[i+1];
-            }
+            System.arraycopy(this.queue, 1, newArray, 0, this.queue.length - 1);
         }
         this.queue = newArray;
     }
@@ -96,6 +92,7 @@ public class Queue implements IQueue{
         String plinio = "";
         for(int i = 0; i<this.queue.length; i++){
             plinio += queue[i];
+            plinio += " ";
         }
         return plinio;
     }
